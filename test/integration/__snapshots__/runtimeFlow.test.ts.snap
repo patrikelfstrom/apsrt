@@ -1,0 +1,1041 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`runtime snapshot flow > collects deterministic snapshot assertions from fixture sources 1`] = `
+[
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            [
+              {},
+              null,
+            ],
+            undefined,
+            {
+              "Ce/gIri5<": [
+                "Nts_p4!",
+                "@5Toc3+=l ",
+              ],
+              "D<(nH": true,
+            },
+            [],
+            {
+              "": "",
+              "#H": null,
+              "Q\\krIhF)-'": ". y_8P?",
+              "Y">\\G-ThR": undefined,
+              "je7@x": false,
+            },
+            {
+              "FHW|B\\z": false,
+              "[": -1.386730053496354e-11,
+              "ea": 8019223403333993,
+            },
+          ],
+          [Function],
+        ],
+        "output": [
+          undefined,
+          {
+            "Ce/gIri5<": [
+              "Nts_p4!",
+              "@5Toc3+=l ",
+            ],
+            "D<(nH": true,
+          },
+          [],
+          {
+            "": "",
+            "#H": null,
+            "Q\\krIhF)-'": ". y_8P?",
+            "Y">\\G-ThR": undefined,
+            "je7@x": false,
+          },
+          {
+            "FHW|B\\z": false,
+            "[": -1.386730053496354e-11,
+            "ea": 8019223403333993,
+          },
+        ],
+      },
+      {
+        "input": [
+          [
+            -5.194848545293243e+307,
+            [
+              {
+                "": "1",
+                "$\`@B": true,
+                "Eyh9)o": "Zw%R7",
+                "[5Z9+": -147117917157212,
+              },
+              {},
+            ],
+          ],
+          [Function],
+        ],
+        "output": [],
+      },
+      {
+        "input": [
+          [
+            [
+              2.171740482083473e-199,
+            ],
+            {
+              "$X}nk>C+": "",
+              "A@jy+F5~": 738600171077963,
+              "N<qY)f8": -8881876058869339,
+              "j8xur+N>81": -3128954048277988,
+            },
+          ],
+          [Function],
+        ],
+        "output": [
+          [
+            2.171740482083473e-199,
+          ],
+        ],
+      },
+    ],
+    "title": "arrayFunctions.ts	filterArray()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            [
+              {},
+              null,
+            ],
+            undefined,
+            {
+              "Ce/gIri5<": [
+                "Nts_p4!",
+                "@5Toc3+=l ",
+              ],
+              "D<(nH": true,
+            },
+            [],
+            {
+              "": "",
+              "#H": null,
+              "Q\\krIhF)-'": ". y_8P?",
+              "Y">\\G-ThR": undefined,
+              "je7@x": false,
+            },
+            {
+              "FHW|B\\z": false,
+              "[": -1.386730053496354e-11,
+              "ea": 8019223403333993,
+            },
+          ],
+          [Function],
+        ],
+        "output": undefined,
+      },
+      {
+        "input": [
+          [
+            -5.194848545293243e+307,
+            [
+              {
+                "": "1",
+                "$\`@B": true,
+                "Eyh9)o": "Zw%R7",
+                "[5Z9+": -147117917157212,
+              },
+              {},
+            ],
+          ],
+          [Function],
+        ],
+        "output": undefined,
+      },
+      {
+        "input": [
+          [
+            [
+              2.171740482083473e-199,
+            ],
+            {
+              "$X}nk>C+": "",
+              "A@jy+F5~": 738600171077963,
+              "N<qY)f8": -8881876058869339,
+              "j8xur+N>81": -3128954048277988,
+            },
+          ],
+          [Function],
+        ],
+        "output": [
+          2.171740482083473e-199,
+        ],
+      },
+    ],
+    "title": "arrayFunctions.ts	findInArray()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            [
+              {},
+              null,
+            ],
+            undefined,
+            {
+              "Ce/gIri5<": [
+                "Nts_p4!",
+                "@5Toc3+=l ",
+              ],
+              "D<(nH": true,
+            },
+            [],
+            {
+              "": "",
+              "#H": null,
+              "Q\\krIhF)-'": ". y_8P?",
+              "Y">\\G-ThR": undefined,
+              "je7@x": false,
+            },
+            {
+              "FHW|B\\z": false,
+              "[": -1.386730053496354e-11,
+              "ea": 8019223403333993,
+            },
+          ],
+          [Function],
+        ],
+        "output": [
+          {},
+          {
+            ""7:\`:/jb": 2.0808894998718476e+298,
+            "bi": 7111812668141131,
+            "h%!b|z": undefined,
+          },
+          [],
+          [],
+          {},
+          [
+            {
+              "hfuX9y1": -4.029917211716543e-276,
+              "mr(": false,
+            },
+          ],
+        ],
+      },
+      {
+        "input": [
+          [
+            -5.194848545293243e+307,
+            [
+              {
+                "": "1",
+                "$\`@B": true,
+                "Eyh9)o": "Zw%R7",
+                "[5Z9+": -147117917157212,
+              },
+              {},
+            ],
+          ],
+          [Function],
+        ],
+        "output": [
+          {},
+          {
+            "": false,
+            ",Ts--!Vu}": undefined,
+            "/,O6?Up": false,
+            "?"2#wVUq)&": true,
+            "M": -4121601424904893,
+          },
+        ],
+      },
+      {
+        "input": [
+          [
+            [
+              2.171740482083473e-199,
+            ],
+            {
+              "$X}nk>C+": "",
+              "A@jy+F5~": 738600171077963,
+              "N<qY)f8": -8881876058869339,
+              "j8xur+N>81": -3128954048277988,
+            },
+          ],
+          [Function],
+        ],
+        "output": [
+          {
+            "/qp": true,
+            "O $a,t3": null,
+            "Q": -7.538251715637011e+152,
+          },
+          null,
+        ],
+      },
+    ],
+    "title": "arrayFunctions.ts	mapArray()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            [
+              {},
+              null,
+            ],
+            undefined,
+            {
+              "Ce/gIri5<": [
+                "Nts_p4!",
+                "@5Toc3+=l ",
+              ],
+              "D<(nH": true,
+            },
+            [],
+            {
+              "": "",
+              "#H": null,
+              "Q\\krIhF)-'": ". y_8P?",
+              "Y">\\G-ThR": undefined,
+              "je7@x": false,
+            },
+            {
+              "FHW|B\\z": false,
+              "[": -1.386730053496354e-11,
+              "ea": 8019223403333993,
+            },
+          ],
+          [Function],
+          [
+            {
+              "aHbW\\": "Efv_u",
+              "n%;gx.ob,": false,
+              "qyfI*": true,
+            },
+          ],
+        ],
+        "output": [],
+      },
+      {
+        "input": [
+          [
+            -5.194848545293243e+307,
+            [
+              {
+                "": "1",
+                "$\`@B": true,
+                "Eyh9)o": "Zw%R7",
+                "[5Z9+": -147117917157212,
+              },
+              {},
+            ],
+          ],
+          [Function],
+          {
+            "": [
+              null,
+            ],
+            "r\`t3Fv~": 5.089964426539501e+139,
+          },
+        ],
+        "output": {},
+      },
+      {
+        "input": [
+          [
+            [
+              2.171740482083473e-199,
+            ],
+            {
+              "$X}nk>C+": "",
+              "A@jy+F5~": 738600171077963,
+              "N<qY)f8": -8881876058869339,
+              "j8xur+N>81": -3128954048277988,
+            },
+          ],
+          [Function],
+          {
+            "Iz?&}1D'": {
+              "": true,
+              "&0>s~^": false,
+              "w(>G$": 8064695290557149,
+            },
+          },
+        ],
+        "output": {
+          "/qp": true,
+          "O $a,t3": null,
+          "Q": -7.538251715637011e+152,
+        },
+      },
+    ],
+    "title": "arrayFunctions.ts	reduceArray()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            [
+              {},
+              null,
+            ],
+            undefined,
+            {
+              "Ce/gIri5<": [
+                "Nts_p4!",
+                "@5Toc3+=l ",
+              ],
+              "D<(nH": true,
+            },
+            [],
+            {
+              "": "",
+              "#H": null,
+              "Q\\krIhF)-'": ". y_8P?",
+              "Y">\\G-ThR": undefined,
+              "je7@x": false,
+            },
+            {
+              "FHW|B\\z": false,
+              "[": -1.386730053496354e-11,
+              "ea": 8019223403333993,
+            },
+          ],
+        ],
+        "output": [
+          {
+            "FHW|B\\z": false,
+            "[": -1.386730053496354e-11,
+            "ea": 8019223403333993,
+          },
+          {
+            "": "",
+            "#H": null,
+            "Q\\krIhF)-'": ". y_8P?",
+            "Y">\\G-ThR": undefined,
+            "je7@x": false,
+          },
+          [],
+          {
+            "Ce/gIri5<": [
+              "Nts_p4!",
+              "@5Toc3+=l ",
+            ],
+            "D<(nH": true,
+          },
+          undefined,
+          [
+            {},
+            null,
+          ],
+        ],
+      },
+      {
+        "input": [
+          [
+            -5.194848545293243e+307,
+            [
+              {
+                "": "1",
+                "$\`@B": true,
+                "Eyh9)o": "Zw%R7",
+                "[5Z9+": -147117917157212,
+              },
+              {},
+            ],
+          ],
+        ],
+        "output": [
+          [
+            {
+              "": "1",
+              "$\`@B": true,
+              "Eyh9)o": "Zw%R7",
+              "[5Z9+": -147117917157212,
+            },
+            {},
+          ],
+          -5.194848545293243e+307,
+        ],
+      },
+      {
+        "input": [
+          [
+            [
+              2.171740482083473e-199,
+            ],
+            {
+              "$X}nk>C+": "",
+              "A@jy+F5~": 738600171077963,
+              "N<qY)f8": -8881876058869339,
+              "j8xur+N>81": -3128954048277988,
+            },
+          ],
+        ],
+        "output": [
+          {
+            "$X}nk>C+": "",
+            "A@jy+F5~": 738600171077963,
+            "N<qY)f8": -8881876058869339,
+            "j8xur+N>81": -3128954048277988,
+          },
+          [
+            2.171740482083473e-199,
+          ],
+        ],
+      },
+    ],
+    "title": "arrayFunctions.ts	reverseArray()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          0.0016607281228186376,
+          4e-323,
+        ],
+        "output": 0.0016607281228186376,
+      },
+      {
+        "input": [
+          9e-323,
+          1.8051814885483423e+27,
+        ],
+        "output": 1.8051814885483423e+27,
+      },
+      {
+        "input": [
+          -1.526195451215428e-24,
+          1.974652743259915e-206,
+        ],
+        "output": -1.526195451215428e-24,
+      },
+    ],
+    "title": "mathUtils.ts	add()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "Hello, k&3OSt!",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": "Hello,  !!",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "Hello, B(!",
+      },
+    ],
+    "title": "mathUtils.ts	greet()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          true,
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          false,
+        ],
+        "output": true,
+      },
+      {
+        "input": [
+          true,
+        ],
+        "output": false,
+      },
+    ],
+    "title": "mathUtils.ts	negate()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          true,
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          false,
+        ],
+        "output": true,
+      },
+      {
+        "input": [
+          true,
+        ],
+        "output": false,
+      },
+    ],
+    "title": "sourceAnalysisFixture.ts	exportedArrow()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+          -3.388855656123108e+267,
+        ],
+        "output": "k&3OSt:-3.388855656123108e+267",
+      },
+      {
+        "input": [
+          " !",
+          3e-323,
+        ],
+        "output": " !:3e-323",
+      },
+      {
+        "input": [
+          "B(",
+          -1.7976931348623141e+308,
+        ],
+        "output": "B(:-1.7976931348623141e+308",
+      },
+    ],
+    "title": "sourceAnalysisFixture.ts	exportedDeclaration()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            "",
+            "3OStF?GG",
+            "v",
+            "Ce/gIri5<",
+            "Ly|rNts",
+            "",
+          ],
+        ],
+        "output": 6,
+      },
+      {
+        "input": [
+          [
+            "_Y2q-;",
+            "z!",
+          ],
+        ],
+        "output": 2,
+      },
+      {
+        "input": [
+          [
+            "(4",
+            "_",
+          ],
+        ],
+        "output": 2,
+      },
+    ],
+    "title": "sourceAnalysisFixture.ts	exportedFunctionExpression()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "k&3OSt",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": "!",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "B(",
+      },
+    ],
+    "title": "sourceAnalysisFixture.ts	usesHiddenHelper()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "K&3OSt",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": " !",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "B(",
+      },
+    ],
+    "title": "textFormatting.ts	capitalize()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": 3,
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": 0,
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": 1,
+      },
+    ],
+    "title": "textFormatting.ts	countConsonants()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": 1,
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": 0,
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": 0,
+      },
+    ],
+    "title": "textFormatting.ts	countVowels()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+          "GGsv;Ce/g",
+        ],
+        "output": -1,
+      },
+      {
+        "input": [
+          " !",
+          "bi",
+        ],
+        "output": -1,
+      },
+      {
+        "input": [
+          "B(",
+          "refb",
+        ],
+        "output": -1,
+      },
+    ],
+    "title": "textFormatting.ts	findSubstring()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": false,
+      },
+    ],
+    "title": "textFormatting.ts	isPalindrome()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            "",
+            "3OStF?GG",
+            "v",
+            "Ce/gIri5<",
+            "Ly|rNts",
+            "",
+          ],
+          "!U=@5To",
+        ],
+        "output": "!U=@5To3OStF?GG!U=@5Tov!U=@5ToCe/gIri5<!U=@5ToLy|rNts!U=@5To",
+      },
+      {
+        "input": [
+          [
+            "_Y2q-;",
+            "z!",
+          ],
+          "Eyh9)o",
+        ],
+        "output": "_Y2q-;Eyh9)oz!",
+      },
+      {
+        "input": [
+          [
+            "(4",
+            "_",
+          ],
+          "~!>1z#!Cz",
+        ],
+        "output": "(4~!>1z#!Cz_",
+      },
+    ],
+    "title": "textFormatting.ts	joinStrings()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "k&3OSt",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": "!",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "B(",
+      },
+    ],
+    "title": "textFormatting.ts	removeWhitespace()",
+  },
+  {
+    "assertions": [
+      {
+        "error": "Invalid count value: -3.388855656123108e+267",
+        "input": [
+          "k&3OSt",
+          -3.388855656123108e+267,
+        ],
+      },
+      {
+        "input": [
+          " !",
+          3e-323,
+        ],
+        "output": "",
+      },
+      {
+        "error": "Invalid count value: -1.7976931348623141e+308",
+        "input": [
+          "B(",
+          -1.7976931348623141e+308,
+        ],
+      },
+    ],
+    "title": "textFormatting.ts	repeatString()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+          "GGsv;Ce/g",
+          "i5<0Ly|rN",
+        ],
+        "output": "k&3OSt",
+      },
+      {
+        "input": [
+          " !",
+          "bi",
+          "!Z~\`~y",
+        ],
+        "output": " !",
+      },
+      {
+        "input": [
+          "B(",
+          "refb",
+          "8",
+        ],
+        "output": "B(",
+      },
+    ],
+    "title": "textFormatting.ts	replaceSubstring()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "tSO3&k",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": "! ",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "(B",
+      },
+    ],
+    "title": "textFormatting.ts	reverseString()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+          "GGsv;Ce/g",
+        ],
+        "output": [
+          "k&3OSt",
+        ],
+      },
+      {
+        "input": [
+          " !",
+          "bi",
+        ],
+        "output": [
+          " !",
+        ],
+      },
+      {
+        "input": [
+          "B(",
+          "refb",
+        ],
+        "output": [
+          "B(",
+        ],
+      },
+    ],
+    "title": "textFormatting.ts	splitString()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "k&3ost",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": " !",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "b(",
+      },
+    ],
+    "title": "textFormatting.ts	toLowerCase()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "K&3OST",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": " !",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "B(",
+      },
+    ],
+    "title": "textFormatting.ts	toUpperCase()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+          -3.388855656123108e+267,
+        ],
+        "output": "...",
+      },
+      {
+        "input": [
+          " !",
+          3e-323,
+        ],
+        "output": "...",
+      },
+      {
+        "input": [
+          "B(",
+          -1.7976931348623141e+308,
+        ],
+        "output": "...",
+      },
+    ],
+    "title": "textFormatting.ts	truncateString()",
+  },
+]
+`;

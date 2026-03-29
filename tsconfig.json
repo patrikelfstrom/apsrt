@@ -1,5 +1,5 @@
 {
-  "include": ["src", "script"],
+  "include": ["src/**/*.ts", "tsdown.config.ts", "vite.config.ts"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -10,7 +10,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
     "baseUrl": "."
   }
 }

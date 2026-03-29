@@ -4,23 +4,20 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "t": "vitest run",
-    "u": "vitest -u run",
-    "w": "vitest",
-    "c": "rm .tsmorph-cache.json"
+    "build": "tsdown",
+    "clean": "rm -rf .apsrt dist blablabla script src/__snapshots__",
+    "test": "vitest run",
+    "test:update": "vitest run --update",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json && tsc --noEmit -p tsconfig.fixtures.json"
   },
   "devDependencies": {
     "@types/node": "^22.15.19",
-    "@types/react": "^19.2.2",
     "tsdown": "^0.12.9",
     "vitest": "^3.2.4"
   },
   "dependencies": {
     "fast-check": "^4.1.1",
-    "globby": "^14.1.0",
-    "ink": "^6.3.1",
-    "package-directory": "^8.1.0",
-    "react": "^19.2.0",
     "ts-morph": "^25.0.1",
     "typescript": "^5.8.3"
   },
@@ -28,13 +25,11 @@
     "vitest": "^3.2.4"
   },
   "exports": {
-    "./apsrt.test": "./blablabla/apsrt.test.js",
-    "./cli": "./blablabla/cli.js",
+    "./cli": "./dist/cli.js",
+    "./runtime.test": "./dist/runtime.test.js",
     "./package.json": "./package.json"
   },
-  "main": "./blablabla/cli.js",
-  "module": "./blablabla/cli.js",
   "bin": {
-    "apsrt": "./blablabla/cli.js"
+    "apsrt": "./dist/cli.js"
   }
 }

@@ -2,94 +2,69 @@
 
 **Automated property-based snapshot regression testing**
 
-APSRT is a TypeScript tool for advanced, automated regression testing. It leverages property-based testing, snapshot validation, and static code analysis to generate and run robust tests for your exported functions—no manual test writing required.
+APSRT is a TypeScript tool for automated regression testing. It analyzes exported functions, generates property-based input samples from their types, and snapshots the results through Vitest.
 
-> **Note:** This project is a proof of concept—an experiment built in about an hour. Contributions are welcome! If you have ideas or improvements, feel free to open a PR.
-
-**Known limitations:**
-
-- Not all argument types are supported yet.
-- Type inference for arguments with TypeScript generics can be improved.
+This repository now keeps its own unit and integration tests separate from the packaged runtime entry so the implementation can be refactored safely.
 
 ## Features
 
-- **Automated test generation**: Analyzes your TypeScript source files and generates property-based tests for all exported functions.
-- **Property-based testing**: Uses [fast-check](https://github.com/dubzzz/fast-check) to generate randomized, type-driven input samples.
-- **Snapshot-based regression**: Captures and compares function outputs using [Vitest](https://vitest.dev/) snapshots to detect regressions.
-- **TypeScript AST introspection**: Utilizes [ts-morph](https://ts-morph.com/) for static analysis of function signatures and parameter types.
-- **Supports arrays, primitives, and higher-order functions** out of the box.
+- Generates runtime snapshot tests for exported TypeScript functions
+- Uses [fast-check](https://github.com/dubzzz/fast-check) to create deterministic sample inputs
+- Uses [Vitest](https://vitest.dev/) snapshots to detect regressions
+- Uses [ts-morph](https://ts-morph.com/) and the TypeScript compiler to inspect function signatures
 
 ## How it works
 
-1. **Scans** your `src/` directory for `.ts` files (excluding test files).
-2. **Analyzes** each file’s exported functions and their parameter types.
-3. **Generates** property-based tests using `fast-check` arbitraries, based on parameter types.
-4. **Runs** each function with randomized, reproducible inputs and snapshots the results.
-5. **Detects regressions** by comparing new outputs to stored snapshots.
+1. APSRT loads a TypeScript config file from the current working directory.
+2. It analyzes included `.ts` files and finds exported functions.
+3. It creates input arbitraries based on parameter type text.
+4. It runs each exported function with deterministic samples.
+5. It snapshots the collected input/output pairs.
 
-## Example
+## Usage
 
-Suppose you have a function in `src/mathUtils.ts`:
-
-```ts
-export function add(a: number, b: number): number {
-  return a + b;
-}
-```
-
-APSRT will automatically generate and run a property-based snapshot test for `add`, using random numbers as inputs.
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- TypeScript project with a `src/` directory
-
-### Installation
-
-Clone this repo and install dependencies:
+Install dependencies:
 
 ```sh
 npm install
 ```
 
-### Usage
-
-Run all generated property-based snapshot tests:
+Run the repo test suite:
 
 ```sh
-npm run t
+npm test
 ```
 
-Update all snapshots:
+Typecheck the source, tests, and fixtures:
 
 ```sh
-npm run u
+npm run typecheck
 ```
 
-Watch mode (for development):
+Build the packaged CLI and runtime test entry:
 
 ```sh
-npm run w
+npm run build
 ```
 
-Clear the ts-morph cache:
+Run the packaged runtime test entry against another config file:
 
 ```sh
-npm run c
+APSRT_TSCONFIG=tsconfig.fixtures.json npx vitest run src/runtime.test.ts
 ```
 
 ## Project Structure
 
-- `src/` — Your TypeScript source files (functions to be tested)
-- `script/` — APSRT’s core logic (test generation, type analysis, etc.)
-- `dynamic.test.ts` — Main entry point for dynamic test generation
+- `src/` — CLI entry, packaged runtime entry, and core implementation
+- `src/core/` — Type analysis, arbitrary creation, cache, and config loading
+- `test/unit/` — Direct unit tests for core modules
+- `test/integration/` — Fixture-based runtime flow coverage
+- `test/fixtures/` — Sample exported functions used as test inputs
 
-## How to Extend
+## Environment Variables
 
-- Add more functions to your `src/` directory—APSRT will pick them up automatically.
-- To support more complex types or custom arbitraries, extend `arbForType.ts`.
+- `APSRT_TSCONFIG`: overrides the TypeScript config file name to load
+- `APSRT_ENABLE_CACHE=false`: disables the on-disk analysis cache
 
 ## Tech Stack
 
@@ -97,14 +72,6 @@ npm run c
 - [fast-check](https://github.com/dubzzz/fast-check)
 - [Vitest](https://vitest.dev/)
 - [ts-morph](https://ts-morph.com/)
-- [globby](https://github.com/sindresorhus/globby)
-
-## Why APSRT?
-
-- **Zero-maintenance**: No need to write or update tests for every function.
-- **Regression-proof**: Snapshots catch unexpected changes in outputs.
-- **Type-driven**: Leverages your TypeScript types for smarter test generation.
-- **Nerdy and advanced**: Combines fuzzing, static analysis, and snapshotting for maximum coverage.
 
 ## License
 

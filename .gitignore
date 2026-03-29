@@ -1,12 +1,6 @@
 
 node_modules/
-
-.tsmorph-cache.json
-
-script/__snapshots__/
-
+.apsrt/
+dist/
 .DS_Store
-
 *.code-workspace
-
-src/__snapshots__/
