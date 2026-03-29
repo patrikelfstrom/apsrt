@@ -1,4 +1,4 @@
-import { basename } from "node:path";
+import { relative } from "node:path";
 import fc from "fast-check";
 import { analyzeProjectSources } from "./analyzeProjectSources";
 import { createArbitraryForType } from "./createArbitraryForType";
@@ -27,13 +27,16 @@ export interface CollectRuntimeSnapshotResultsOptions
 
 export const shouldIncludeRuntimeSourceFile = (filePath: string) =>
   filePath.endsWith(".ts") &&
+  !filePath.endsWith(".d.ts") &&
   !filePath.endsWith(".test.ts") &&
-  !filePath.endsWith("cli.ts");
+  !filePath.endsWith("cli.ts") &&
+  !filePath.includes("/node_modules/");
 
 export async function collectRuntimeSnapshotResults(
   options: CollectRuntimeSnapshotResultsOptions = {}
 ): Promise<RuntimeSnapshotResult[]> {
   const parsedTsConfig = loadTsConfig(options);
+  const displayRoot = options.cwd ?? process.cwd();
   const sourceFilePaths = parsedTsConfig.fileNames
     .filter(shouldIncludeRuntimeSourceFile)
     .sort((left, right) => left.localeCompare(right));
@@ -52,7 +55,8 @@ export async function collectRuntimeSnapshotResults(
           );
         }
 
-        const title = `${basename(sourceFilePath)}\t${name}()`;
+        const relativeSourcePath = relative(displayRoot, sourceFilePath);
+        const title = `${relativeSourcePath}\t${name}()`;
         const argumentArbitraries = parameterTypes.map(createArbitraryForType);
         const sampledArguments = argumentArbitraries.length
           ? fc.sample(fc.tuple(...argumentArbitraries), {

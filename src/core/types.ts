@@ -31,3 +31,10 @@ export interface TsConfigLookupOptions {
   configName?: string;
   tsConfigFilePath?: string;
 }
+
+export interface RuntimeCliOptions {
+  cwd: string;
+  tsConfigFilePath?: string;
+  updateSnapshots: boolean;
+  watch: boolean;
+}

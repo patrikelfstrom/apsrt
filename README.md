@@ -23,34 +23,40 @@ This repository now keeps its own unit and integration tests separate from the p
 
 ## Usage
 
-Install dependencies:
+Install APSRT in a project:
 
 ```sh
-npm install
+npm install --save-dev apsrt
 ```
 
-Run the repo test suite:
+Or run it without adding it to `package.json`:
 
 ```sh
-npm test
+npx apsrt
 ```
 
-Typecheck the source, tests, and fixtures:
+Run against the TypeScript files included by your local `tsconfig.json`:
 
 ```sh
-npm run typecheck
+npx apsrt
 ```
 
-Build the packaged CLI and runtime test entry:
+Use a different config file:
 
 ```sh
-npm run build
+npx apsrt --tsconfig tsconfig.app.json
 ```
 
-Run the packaged runtime test entry against another config file:
+Update snapshots:
 
 ```sh
-APSRT_TSCONFIG=tsconfig.fixtures.json npx vitest run src/runtime.test.ts
+npx apsrt --update
+```
+
+Watch mode:
+
+```sh
+npx apsrt --watch
 ```
 
 ## Project Structure
@@ -65,6 +71,8 @@ APSRT_TSCONFIG=tsconfig.fixtures.json npx vitest run src/runtime.test.ts
 
 - `APSRT_TSCONFIG`: overrides the TypeScript config file name to load
 - `APSRT_ENABLE_CACHE=false`: disables the on-disk analysis cache
+
+Snapshots are stored in `.apsrt/__snapshots__/runtime.test.js.snap` inside the project you run APSRT from.
 
 ## Tech Stack
 
