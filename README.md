@@ -9,13 +9,13 @@ APSRT is a TypeScript tool for automated regression testing. It analyzes exporte
 Install APSRT in the project you want to test:
 
 ```sh
-npm install --save-dev apsrt
+npm install --save-dev @patrikelfstrom/apsrt
 ```
 
 Or run it without adding it to `package.json`:
 
 ```sh
-npx apsrt
+npx @patrikelfstrom/apsrt
 ```
 
 By default it will use your local `tsconfig.json`.

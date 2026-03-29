@@ -55,7 +55,7 @@ const vitestConfig = defineConfig({
     exclude: [],
     root: cwd,
     environment: "node",
-    server: { deps: { inline: ["apsrt"] } },
+    server: { deps: { inline: ["@patrikelfstrom/apsrt"] } },
     reporters: [new ApsrtReporter()],
     silent: true,
     resolveSnapshotPath: () =>

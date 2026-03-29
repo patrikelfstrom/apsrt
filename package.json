@@ -1,5 +1,5 @@
 {
-  "name": "apsrt",
+  "name": "@patrikelfstrom/apsrt",
   "description": "Automated Property-based Snapshot Regression Testing",
   "version": "0.0.1",
   "type": "module",
