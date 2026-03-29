@@ -112,25 +112,53 @@ describe("analyzeProjectSources", () => {
   });
 
   it("throws for likely nondeterministic functions without @apsrt-ignore", async () => {
-    await expect(
-      analyzeProjectSources([nondeterministicFixturePath], {
+    try {
+      await analyzeProjectSources([nondeterministicFixturePath], {
         tsConfigFilePath: nondeterministicFixtureTsConfigPath,
         cache: createAnalysisCache({ enabled: false }),
-      })
-    ).rejects.toThrowError(
-      "Likely nondeterministic function detected.\ntest/fixtures/nondeterministicFixture.ts:1\nTip: Add @apsrt-ignore annotation."
-    );
+      });
+      expect.fail("Expected analyzeProjectSources to throw");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+
+      expect(message).toContain("Likely nondeterministic function detected.");
+      expect(message).toContain(
+        "test/fixtures/nondeterministicFixture.ts:2:21 (Math.random())"
+      );
+      expect(message).toContain(
+        "> 2 |   return Math.floor(Math.random() * (max - min + 1) + min);"
+      );
+      expect(message).toContain("  1 | export function unignoredRandomNumber");
+      expect(message).toContain("    |                     ^");
+      expect(message).toContain("Tip: Add @apsrt-ignore annotation.");
+    }
   });
 
   it("reports all nondeterministic functions found in a file", async () => {
-    await expect(
-      analyzeProjectSources([multipleNondeterministicFixturePath], {
+    try {
+      await analyzeProjectSources([multipleNondeterministicFixturePath], {
         tsConfigFilePath: multipleNondeterministicFixtureTsConfigPath,
         cache: createAnalysisCache({ enabled: false }),
-      })
-    ).rejects.toThrowError(
-      "Likely nondeterministic functions detected.\ntest/fixtures/multipleNondeterministicFixture.ts:1\ntest/fixtures/multipleNondeterministicFixture.ts:4\nTip: Add @apsrt-ignore annotation."
-    );
+      });
+      expect.fail("Expected analyzeProjectSources to throw");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+
+      expect(message).toContain("Likely nondeterministic functions detected.");
+      expect(message).toContain(
+        "test/fixtures/multipleNondeterministicFixture.ts:2:14 (Math.random())"
+      );
+      expect(message).toContain(
+        "test/fixtures/multipleNondeterministicFixture.ts:5:14 (Math.random())"
+      );
+      expect(message).toContain(
+        "> 2 |   Math.floor(Math.random() * (max - min + 1) + min);"
+      );
+      expect(message).toContain(
+        "> 5 |   Math.floor(Math.random() * (max - min + 1) + min);"
+      );
+      expect(message).toContain("Tip: Add @apsrt-ignore annotation.");
+    }
   });
 
   it("loads user modules with TS-aware extensionless relative imports", async () => {

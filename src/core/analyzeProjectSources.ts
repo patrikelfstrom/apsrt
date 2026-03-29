@@ -1,7 +1,10 @@
 import { relative } from "node:path";
 import { Node, Project, SyntaxKind, type SourceFile } from "ts-morph";
 import { analysisCache } from "./analysisCache";
-import { createLikelyNondeterministicFunctionError } from "./errors";
+import {
+  createLikelyNondeterministicFunctionError,
+  type ApsrtUserErrorLocation,
+} from "./errors";
 import { findTsConfigPath } from "./loadTsConfig";
 import { createProjectModuleLoader } from "./projectModuleLoader";
 import type {
@@ -19,7 +22,13 @@ export interface AnalyzeProjectSourcesOptions extends TsConfigLookupOptions {
 interface SourceFileScanResult {
   sourceFilePath: string;
   analysis: SourceFileAnalysis;
-  nondeterministicLocations: string[];
+  nondeterministicLocations: ApsrtUserErrorLocation[];
+}
+
+interface NondeterministicUsage {
+  lineNumber: number;
+  columnNumber: number;
+  detail: string;
 }
 
 export const analyzeProjectSources = async (
@@ -90,9 +99,9 @@ function analyzeSourceFile(
   displayRoot: string
 ): {
   analysis: SourceFileAnalysis;
-  nondeterministicLocations: string[];
+  nondeterministicLocations: ApsrtUserErrorLocation[];
 } {
-  const nondeterministicLocations: string[] = [];
+  const nondeterministicLocations: ApsrtUserErrorLocation[] = [];
   const exportedFunctions = sourceFile
     .getFunctions()
     .filter((functionDeclaration) => functionDeclaration.isExported())
@@ -106,13 +115,23 @@ function analyzeSourceFile(
         return null;
       }
 
-      if (isLikelyNondeterministic(functionDeclaration.getText())) {
+      const nondeterministicUsage =
+        findLikelyNondeterministicUsage(functionDeclaration);
+      if (nondeterministicUsage) {
         const location = toDisplayLocation(
           sourceFile.getFilePath(),
-          functionDeclaration.getStartLineNumber(),
+          nondeterministicUsage.lineNumber,
+          nondeterministicUsage.columnNumber,
           displayRoot
         );
-        nondeterministicLocations.push(location);
+        nondeterministicLocations.push({
+          label: `${location} (${nondeterministicUsage.detail})`,
+          context: buildCodeFrame(
+            sourceFile,
+            nondeterministicUsage.lineNumber,
+            nondeterministicUsage.columnNumber
+          ),
+        });
         return null;
       }
 
@@ -158,13 +177,23 @@ function analyzeSourceFile(
             return null;
           }
 
-          if (isLikelyNondeterministic(declaration.getText())) {
+          const nondeterministicUsage =
+            findLikelyNondeterministicUsage(initializer);
+          if (nondeterministicUsage) {
             const location = toDisplayLocation(
               sourceFile.getFilePath(),
-              declaration.getStartLineNumber(),
+              nondeterministicUsage.lineNumber,
+              nondeterministicUsage.columnNumber,
               displayRoot
             );
-            nondeterministicLocations.push(location);
+            nondeterministicLocations.push({
+              label: `${location} (${nondeterministicUsage.detail})`,
+              context: buildCodeFrame(
+                sourceFile,
+                nondeterministicUsage.lineNumber,
+                nondeterministicUsage.columnNumber
+              ),
+            });
             return null;
           }
 
@@ -212,24 +241,88 @@ function hasIgnoreAnnotation(
   });
 }
 
-function isLikelyNondeterministic(functionText: string) {
-  return [
-    "Math.random(",
-    "Date.now(",
-    "new Date(",
-    "crypto.randomUUID(",
-  ].some((pattern) => functionText.includes(pattern));
-}
-
 function toDisplayLocation(
   filePath: string,
   lineNumber: number,
+  columnNumber: number,
   displayRoot: string
 ) {
   const displayPath = relative(displayRoot, filePath) || ".";
-  return `${displayPath}:${lineNumber}`;
+  return `${displayPath}:${lineNumber}:${columnNumber}`;
 }
 
 function getNodeLocation(node: Node) {
   return node.getSourceFile().getLineAndColumnAtPos(node.getStart());
+}
+
+function findLikelyNondeterministicUsage(node: Node): NondeterministicUsage | null {
+  for (const descendant of node.getDescendants()) {
+    if (Node.isCallExpression(descendant)) {
+      const expressionText = descendant.getExpression().getText();
+      if (expressionText === "Math.random") {
+        return toNondeterministicUsage(descendant, "Math.random()");
+      }
+
+      if (expressionText === "Date.now") {
+        return toNondeterministicUsage(descendant, "Date.now()");
+      }
+
+      if (expressionText === "crypto.randomUUID") {
+        return toNondeterministicUsage(descendant, "crypto.randomUUID()");
+      }
+    }
+
+    if (
+      Node.isNewExpression(descendant) &&
+      descendant.getExpression().getText() === "Date"
+    ) {
+      return toNondeterministicUsage(descendant, "new Date()");
+    }
+  }
+
+  return null;
+}
+
+function toNondeterministicUsage(node: Node, detail: string): NondeterministicUsage {
+  const location = getNodeLocation(node);
+
+  return {
+    lineNumber: location.line,
+    columnNumber: location.column,
+    detail,
+  };
+}
+
+function buildCodeFrame(
+  sourceFile: SourceFile,
+  lineNumber: number,
+  columnNumber: number
+) {
+  const sourceLines = sourceFile.getFullText().split(/\r?\n/);
+  if (sourceLines[sourceLines.length - 1] === "") {
+    sourceLines.pop();
+  }
+
+  const startLine = Math.max(1, lineNumber - 2);
+  const endLine = Math.min(sourceLines.length, lineNumber + 2);
+  const lineNumberWidth = String(endLine).length;
+  const frameLines: string[] = [];
+
+  for (let currentLine = startLine; currentLine <= endLine; currentLine += 1) {
+    const marker = currentLine === lineNumber ? ">" : " ";
+    const sourceLine = sourceLines[currentLine - 1] ?? "";
+    frameLines.push(
+      `${marker} ${String(currentLine).padStart(lineNumberWidth)} | ${sourceLine}`
+    );
+
+    if (currentLine === lineNumber) {
+      frameLines.push(
+        `  ${" ".repeat(lineNumberWidth)} | ${" ".repeat(
+          Math.max(0, columnNumber - 1)
+        )}^`
+      );
+    }
+  }
+
+  return frameLines;
 }

@@ -22,7 +22,11 @@ function createTempProject() {
 }
 
 afterEach(() => {
-  process.env.APSRT_TSCONFIG = originalConfigEnv;
+  if (originalConfigEnv === undefined) {
+    delete process.env.APSRT_TSCONFIG;
+  } else {
+    process.env.APSRT_TSCONFIG = originalConfigEnv;
+  }
 
   while (tempDirectories.length > 0) {
     const directory = tempDirectories.pop();
@@ -72,6 +76,38 @@ describe("loadTsConfig", () => {
         cwd: projectRoot,
         configName: "missing.json",
       })
-    ).toThrowError("Could not find missing.json");
+    ).toThrowError(
+      `Could not find missing.json in ${projectRoot} or any parent directory.`
+    );
+  });
+
+  it("suggests descendant configs when running from a workspace root", () => {
+    const projectRoot = createTempProject();
+    const packageRoot = join(projectRoot, "packages", "web");
+
+    mkdirSync(packageRoot, { recursive: true });
+    writeFileSync(
+      join(packageRoot, "tsconfig.json"),
+      JSON.stringify({ include: ["src/**/*.ts"] }, null, 2),
+      "utf8"
+    );
+
+    try {
+      findTsConfigPath({ cwd: projectRoot });
+      expect.fail("Expected findTsConfigPath to throw");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+
+      expect(message).toContain(
+        `Could not find tsconfig.json in ${projectRoot} or any parent directory.`
+      );
+      expect(message).toContain(
+        "Found matching tsconfig.json files below the current directory:"
+      );
+      expect(message).toContain("- packages/web/tsconfig.json");
+      expect(message).toContain(
+        "Run APSRT from the package you want to analyze, or pass --tsconfig with the matching config path."
+      );
+    }
   });
 });

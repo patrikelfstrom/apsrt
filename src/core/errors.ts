@@ -1,12 +1,17 @@
+export interface ApsrtUserErrorLocation {
+  label: string;
+  context?: string[];
+}
+
 interface ApsrtUserErrorOptions {
   title: string;
-  locations?: string[];
+  locations?: ApsrtUserErrorLocation[];
   hint?: string;
 }
 
 export class ApsrtUserError extends Error {
   title: string;
-  locations: string[];
+  locations: ApsrtUserErrorLocation[];
   hint?: string;
 
   constructor(options: ApsrtUserErrorOptions) {
@@ -45,15 +50,29 @@ export function formatApsrtUserError(error: ApsrtUserError, useColor: boolean) {
 
   if (error.locations.length === 1) {
     lines.push(
-      `${locationEmoji} ${gray}at${reset} ${cyan}${error.locations[0]}${reset}`
+      `${locationEmoji} ${gray}at${reset} ${cyan}${error.locations[0].label}${reset}`
     );
+    if (error.locations[0].context?.length) {
+      lines.push(
+        ...error.locations[0].context.map(
+          (line) => `   ${gray}${line}${reset}`
+        )
+      );
+    }
   }
 
   if (error.locations.length > 1) {
     lines.push(`${locationEmoji} ${gray}at${reset}`);
-    lines.push(
-      ...error.locations.map((location) => `  ${cyan}${location}${reset}`)
-    );
+    for (const [index, location] of error.locations.entries()) {
+      lines.push(`  ${cyan}${location.label}${reset}`);
+      if (location.context?.length) {
+        lines.push(...location.context.map((line) => `   ${gray}${line}${reset}`));
+      }
+
+      if (location.context?.length && index < error.locations.length - 1) {
+        lines.push("");
+      }
+    }
   }
 
   if (error.hint) {
@@ -63,7 +82,9 @@ export function formatApsrtUserError(error: ApsrtUserError, useColor: boolean) {
   return lines.join("\n");
 }
 
-export function createLikelyNondeterministicFunctionError(locations: string[]) {
+export function createLikelyNondeterministicFunctionError(
+  locations: ApsrtUserErrorLocation[]
+) {
   return new ApsrtUserError({
     title:
       locations.length === 1
@@ -78,7 +99,16 @@ function buildPlainMessage(options: ApsrtUserErrorOptions) {
   const lines = [options.title];
 
   if (options.locations?.length) {
-    lines.push(...options.locations);
+    for (const [index, location] of options.locations.entries()) {
+      lines.push(location.label);
+      if (location.context?.length) {
+        lines.push(...location.context);
+      }
+
+      if (location.context?.length && index < options.locations.length - 1) {
+        lines.push("");
+      }
+    }
   }
 
   if (options.hint) {
