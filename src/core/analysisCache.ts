@@ -55,6 +55,10 @@ export function createAnalysisCache(
         return null;
       }
 
+      if (!isValidSourceFileAnalysis(cachedEntry.data)) {
+        return null;
+      }
+
       return cachedEntry.data;
     },
 
@@ -79,3 +83,15 @@ export function createAnalysisCache(
 }
 
 export const analysisCache = createAnalysisCache();
+
+function isValidSourceFileAnalysis(
+  analysis: SourceFileAnalysis
+): analysis is SourceFileAnalysis {
+  return analysis.functions.every(
+    (functionAnalysis) =>
+      typeof functionAnalysis.name === "string" &&
+      typeof functionAnalysis.lineNumber === "number" &&
+      typeof functionAnalysis.columnNumber === "number" &&
+      Array.isArray(functionAnalysis.parameterTypes)
+  );
+}

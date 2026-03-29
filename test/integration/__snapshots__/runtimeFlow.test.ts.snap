@@ -33,6 +33,123 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
               "ea": 8019223403333993,
             },
           ],
+        ],
+        "output": [
+          {
+            "FHW|B\\z": false,
+            "[": -1.386730053496354e-11,
+            "ea": 8019223403333993,
+          },
+          {
+            "": "",
+            "#H": null,
+            "Q\\krIhF)-'": ". y_8P?",
+            "Y">\\G-ThR": undefined,
+            "je7@x": false,
+          },
+          [],
+          {
+            "Ce/gIri5<": [
+              "Nts_p4!",
+              "@5Toc3+=l ",
+            ],
+            "D<(nH": true,
+          },
+          undefined,
+          [
+            {},
+            null,
+          ],
+        ],
+      },
+      {
+        "input": [
+          [
+            -5.194848545293243e+307,
+            [
+              {
+                "": "1",
+                "$\`@B": true,
+                "Eyh9)o": "Zw%R7",
+                "[5Z9+": -147117917157212,
+              },
+              {},
+            ],
+          ],
+        ],
+        "output": [
+          [
+            {
+              "": "1",
+              "$\`@B": true,
+              "Eyh9)o": "Zw%R7",
+              "[5Z9+": -147117917157212,
+            },
+            {},
+          ],
+          -5.194848545293243e+307,
+        ],
+      },
+      {
+        "input": [
+          [
+            [
+              2.171740482083473e-199,
+            ],
+            {
+              "$X}nk>C+": "",
+              "A@jy+F5~": 738600171077963,
+              "N<qY)f8": -8881876058869339,
+              "j8xur+N>81": -3128954048277988,
+            },
+          ],
+        ],
+        "output": [
+          {
+            "$X}nk>C+": "",
+            "A@jy+F5~": 738600171077963,
+            "N<qY)f8": -8881876058869339,
+            "j8xur+N>81": -3128954048277988,
+          },
+          [
+            2.171740482083473e-199,
+          ],
+        ],
+      },
+    ],
+    "title": "test/fixtures/arrayFunctions.ts	1	17	reverseArray()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          [
+            [
+              {},
+              null,
+            ],
+            undefined,
+            {
+              "Ce/gIri5<": [
+                "Nts_p4!",
+                "@5Toc3+=l ",
+              ],
+              "D<(nH": true,
+            },
+            [],
+            {
+              "": "",
+              "#H": null,
+              "Q\\krIhF)-'": ". y_8P?",
+              "Y">\\G-ThR": undefined,
+              "je7@x": false,
+            },
+            {
+              "FHW|B\\z": false,
+              "[": -1.386730053496354e-11,
+              "ea": 8019223403333993,
+            },
+          ],
           [Function],
         ],
         "output": [
@@ -99,82 +216,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         ],
       },
     ],
-    "title": "test/fixtures/arrayFunctions.ts	filterArray()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          [
-            [
-              {},
-              null,
-            ],
-            undefined,
-            {
-              "Ce/gIri5<": [
-                "Nts_p4!",
-                "@5Toc3+=l ",
-              ],
-              "D<(nH": true,
-            },
-            [],
-            {
-              "": "",
-              "#H": null,
-              "Q\\krIhF)-'": ". y_8P?",
-              "Y">\\G-ThR": undefined,
-              "je7@x": false,
-            },
-            {
-              "FHW|B\\z": false,
-              "[": -1.386730053496354e-11,
-              "ea": 8019223403333993,
-            },
-          ],
-          [Function],
-        ],
-        "output": undefined,
-      },
-      {
-        "input": [
-          [
-            -5.194848545293243e+307,
-            [
-              {
-                "": "1",
-                "$\`@B": true,
-                "Eyh9)o": "Zw%R7",
-                "[5Z9+": -147117917157212,
-              },
-              {},
-            ],
-          ],
-          [Function],
-        ],
-        "output": undefined,
-      },
-      {
-        "input": [
-          [
-            [
-              2.171740482083473e-199,
-            ],
-            {
-              "$X}nk>C+": "",
-              "A@jy+F5~": 738600171077963,
-              "N<qY)f8": -8881876058869339,
-              "j8xur+N>81": -3128954048277988,
-            },
-          ],
-          [Function],
-        ],
-        "output": [
-          2.171740482083473e-199,
-        ],
-      },
-    ],
-    "title": "test/fixtures/arrayFunctions.ts	findInArray()",
+    "title": "test/fixtures/arrayFunctions.ts	11	17	filterArray()",
   },
   {
     "assertions": [
@@ -279,7 +321,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         ],
       },
     ],
-    "title": "test/fixtures/arrayFunctions.ts	mapArray()",
+    "title": "test/fixtures/arrayFunctions.ts	26	17	mapArray()",
   },
   {
     "assertions": [
@@ -376,7 +418,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         },
       },
     ],
-    "title": "test/fixtures/arrayFunctions.ts	reduceArray()",
+    "title": "test/fixtures/arrayFunctions.ts	39	17	reduceArray()",
   },
   {
     "assertions": [
@@ -409,34 +451,9 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
               "ea": 8019223403333993,
             },
           ],
+          [Function],
         ],
-        "output": [
-          {
-            "FHW|B\\z": false,
-            "[": -1.386730053496354e-11,
-            "ea": 8019223403333993,
-          },
-          {
-            "": "",
-            "#H": null,
-            "Q\\krIhF)-'": ". y_8P?",
-            "Y">\\G-ThR": undefined,
-            "je7@x": false,
-          },
-          [],
-          {
-            "Ce/gIri5<": [
-              "Nts_p4!",
-              "@5Toc3+=l ",
-            ],
-            "D<(nH": true,
-          },
-          undefined,
-          [
-            {},
-            null,
-          ],
-        ],
+        "output": undefined,
       },
       {
         "input": [
@@ -452,19 +469,9 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
               {},
             ],
           ],
+          [Function],
         ],
-        "output": [
-          [
-            {
-              "": "1",
-              "$\`@B": true,
-              "Eyh9)o": "Zw%R7",
-              "[5Z9+": -147117917157212,
-            },
-            {},
-          ],
-          -5.194848545293243e+307,
-        ],
+        "output": undefined,
       },
       {
         "input": [
@@ -479,21 +486,14 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
               "j8xur+N>81": -3128954048277988,
             },
           ],
+          [Function],
         ],
         "output": [
-          {
-            "$X}nk>C+": "",
-            "A@jy+F5~": 738600171077963,
-            "N<qY)f8": -8881876058869339,
-            "j8xur+N>81": -3128954048277988,
-          },
-          [
-            2.171740482083473e-199,
-          ],
+          2.171740482083473e-199,
         ],
       },
     ],
-    "title": "test/fixtures/arrayFunctions.ts	reverseArray()",
+    "title": "test/fixtures/arrayFunctions.ts	53	17	findInArray()",
   },
   {
     "assertions": [
@@ -519,7 +519,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": -1.526195451215428e-24,
       },
     ],
-    "title": "test/fixtures/mathUtils.ts	add()",
+    "title": "test/fixtures/mathUtils.ts	1	17	add()",
   },
   {
     "assertions": [
@@ -542,7 +542,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": "Hello, B(!",
       },
     ],
-    "title": "test/fixtures/mathUtils.ts	greet()",
+    "title": "test/fixtures/mathUtils.ts	5	17	greet()",
   },
   {
     "assertions": [
@@ -565,30 +565,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": false,
       },
     ],
-    "title": "test/fixtures/mathUtils.ts	negate()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          true,
-        ],
-        "output": false,
-      },
-      {
-        "input": [
-          false,
-        ],
-        "output": true,
-      },
-      {
-        "input": [
-          true,
-        ],
-        "output": false,
-      },
-    ],
-    "title": "test/fixtures/sourceAnalysisFixture.ts	exportedArrow()",
+    "title": "test/fixtures/mathUtils.ts	9	17	negate()",
   },
   {
     "assertions": [
@@ -614,7 +591,53 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": "B(:-1.7976931348623141e+308",
       },
     ],
-    "title": "test/fixtures/sourceAnalysisFixture.ts	exportedDeclaration()",
+    "title": "test/fixtures/sourceAnalysisFixture.ts	1	17	exportedDeclaration()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "k&3OSt",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": "!",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "B(",
+      },
+    ],
+    "title": "test/fixtures/sourceAnalysisFixture.ts	15	17	usesHiddenHelper()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          true,
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          false,
+        ],
+        "output": true,
+      },
+      {
+        "input": [
+          true,
+        ],
+        "output": false,
+      },
+    ],
+    "title": "test/fixtures/sourceAnalysisFixture.ts	5	14	exportedArrow()",
   },
   {
     "assertions": [
@@ -650,7 +673,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": 2,
       },
     ],
-    "title": "test/fixtures/sourceAnalysisFixture.ts	exportedFunctionExpression()",
+    "title": "test/fixtures/sourceAnalysisFixture.ts	7	14	exportedFunctionExpression()",
   },
   {
     "assertions": [
@@ -658,30 +681,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "input": [
           "k&3OSt",
         ],
-        "output": "k&3OSt",
-      },
-      {
-        "input": [
-          " !",
-        ],
-        "output": "!",
-      },
-      {
-        "input": [
-          "B(",
-        ],
-        "output": "B(",
-      },
-    ],
-    "title": "test/fixtures/sourceAnalysisFixture.ts	usesHiddenHelper()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          "k&3OSt",
-        ],
-        "output": "K&3OSt",
+        "output": "K&3OST",
       },
       {
         "input": [
@@ -696,7 +696,76 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": "B(",
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	capitalize()",
+    "title": "test/fixtures/textFormatting.ts	1	17	toUpperCase()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "tSO3&k",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": "! ",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "(B",
+      },
+    ],
+    "title": "test/fixtures/textFormatting.ts	13	17	reverseString()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": false,
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": false,
+      },
+    ],
+    "title": "test/fixtures/textFormatting.ts	17	17	isPalindrome()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": 1,
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": 0,
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": 0,
+      },
+    ],
+    "title": "test/fixtures/textFormatting.ts	22	17	countVowels()",
   },
   {
     "assertions": [
@@ -719,7 +788,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": 1,
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	countConsonants()",
+    "title": "test/fixtures/textFormatting.ts	35	17	countConsonants()",
   },
   {
     "assertions": [
@@ -727,22 +796,97 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "input": [
           "k&3OSt",
         ],
-        "output": 1,
+        "output": "k&3OSt",
       },
       {
         "input": [
           " !",
         ],
-        "output": 0,
+        "output": "!",
       },
       {
         "input": [
           "B(",
         ],
-        "output": 0,
+        "output": "B(",
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	countVowels()",
+    "title": "test/fixtures/textFormatting.ts	48	17	removeWhitespace()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+        ],
+        "output": "k&3ost",
+      },
+      {
+        "input": [
+          " !",
+        ],
+        "output": " !",
+      },
+      {
+        "input": [
+          "B(",
+        ],
+        "output": "b(",
+      },
+    ],
+    "title": "test/fixtures/textFormatting.ts	5	17	toLowerCase()",
+  },
+  {
+    "assertions": [
+      {
+        "input": [
+          "k&3OSt",
+          -3.388855656123108e+267,
+        ],
+        "output": "...",
+      },
+      {
+        "input": [
+          " !",
+          3e-323,
+        ],
+        "output": "...",
+      },
+      {
+        "input": [
+          "B(",
+          -1.7976931348623141e+308,
+        ],
+        "output": "...",
+      },
+    ],
+    "title": "test/fixtures/textFormatting.ts	52	17	truncateString()",
+  },
+  {
+    "assertions": [
+      {
+        "error": "Invalid count value: -3.388855656123108e+267",
+        "input": [
+          "k&3OSt",
+          -3.388855656123108e+267,
+        ],
+      },
+      {
+        "input": [
+          " !",
+          3e-323,
+        ],
+        "output": "",
+      },
+      {
+        "error": "Invalid count value: -1.7976931348623141e+308",
+        "input": [
+          "B(",
+          -1.7976931348623141e+308,
+        ],
+      },
+    ],
+    "title": "test/fixtures/textFormatting.ts	60	17	repeatString()",
   },
   {
     "assertions": [
@@ -751,47 +895,30 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
           "k&3OSt",
           "GGsv;Ce/g",
         ],
-        "output": -1,
+        "output": [
+          "k&3OSt",
+        ],
       },
       {
         "input": [
           " !",
           "bi",
         ],
-        "output": -1,
+        "output": [
+          " !",
+        ],
       },
       {
         "input": [
           "B(",
           "refb",
         ],
-        "output": -1,
-      },
-    ],
-    "title": "test/fixtures/textFormatting.ts	findSubstring()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          "k&3OSt",
-        ],
-        "output": false,
-      },
-      {
-        "input": [
-          " !",
-        ],
-        "output": false,
-      },
-      {
-        "input": [
+        "output": [
           "B(",
         ],
-        "output": false,
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	isPalindrome()",
+    "title": "test/fixtures/textFormatting.ts	64	17	splitString()",
   },
   {
     "assertions": [
@@ -830,56 +957,33 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": "(4~!>1z#!Cz_",
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	joinStrings()",
+    "title": "test/fixtures/textFormatting.ts	68	17	joinStrings()",
   },
   {
     "assertions": [
       {
         "input": [
           "k&3OSt",
+          "GGsv;Ce/g",
         ],
-        "output": "k&3OSt",
+        "output": -1,
       },
       {
         "input": [
           " !",
+          "bi",
         ],
-        "output": "!",
+        "output": -1,
       },
       {
         "input": [
           "B(",
+          "refb",
         ],
-        "output": "B(",
+        "output": -1,
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	removeWhitespace()",
-  },
-  {
-    "assertions": [
-      {
-        "error": "Invalid count value: -3.388855656123108e+267",
-        "input": [
-          "k&3OSt",
-          -3.388855656123108e+267,
-        ],
-      },
-      {
-        "input": [
-          " !",
-          3e-323,
-        ],
-        "output": "",
-      },
-      {
-        "error": "Invalid count value: -1.7976931348623141e+308",
-        "input": [
-          "B(",
-          -1.7976931348623141e+308,
-        ],
-      },
-    ],
-    "title": "test/fixtures/textFormatting.ts	repeatString()",
+    "title": "test/fixtures/textFormatting.ts	72	17	findSubstring()",
   },
   {
     "assertions": [
@@ -908,7 +1012,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": "B(",
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	replaceSubstring()",
+    "title": "test/fixtures/textFormatting.ts	76	17	replaceSubstring()",
   },
   {
     "assertions": [
@@ -916,85 +1020,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "input": [
           "k&3OSt",
         ],
-        "output": "tSO3&k",
-      },
-      {
-        "input": [
-          " !",
-        ],
-        "output": "! ",
-      },
-      {
-        "input": [
-          "B(",
-        ],
-        "output": "(B",
-      },
-    ],
-    "title": "test/fixtures/textFormatting.ts	reverseString()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          "k&3OSt",
-          "GGsv;Ce/g",
-        ],
-        "output": [
-          "k&3OSt",
-        ],
-      },
-      {
-        "input": [
-          " !",
-          "bi",
-        ],
-        "output": [
-          " !",
-        ],
-      },
-      {
-        "input": [
-          "B(",
-          "refb",
-        ],
-        "output": [
-          "B(",
-        ],
-      },
-    ],
-    "title": "test/fixtures/textFormatting.ts	splitString()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          "k&3OSt",
-        ],
-        "output": "k&3ost",
-      },
-      {
-        "input": [
-          " !",
-        ],
-        "output": " !",
-      },
-      {
-        "input": [
-          "B(",
-        ],
-        "output": "b(",
-      },
-    ],
-    "title": "test/fixtures/textFormatting.ts	toLowerCase()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          "k&3OSt",
-        ],
-        "output": "K&3OST",
+        "output": "K&3OSt",
       },
       {
         "input": [
@@ -1009,33 +1035,7 @@ exports[`runtime snapshot flow > collects deterministic snapshot assertions from
         "output": "B(",
       },
     ],
-    "title": "test/fixtures/textFormatting.ts	toUpperCase()",
-  },
-  {
-    "assertions": [
-      {
-        "input": [
-          "k&3OSt",
-          -3.388855656123108e+267,
-        ],
-        "output": "...",
-      },
-      {
-        "input": [
-          " !",
-          3e-323,
-        ],
-        "output": "...",
-      },
-      {
-        "input": [
-          "B(",
-          -1.7976931348623141e+308,
-        ],
-        "output": "...",
-      },
-    ],
-    "title": "test/fixtures/textFormatting.ts	truncateString()",
+    "title": "test/fixtures/textFormatting.ts	9	17	capitalize()",
   },
 ]
 `;

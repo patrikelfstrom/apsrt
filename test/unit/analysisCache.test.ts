@@ -57,7 +57,7 @@ describe("createAnalysisCache", () => {
       rootDir: workspaceRoot,
     });
     const analysis: SourceFileAnalysis = {
-      functions: [{ name: "value", parameterTypes: [] }],
+      functions: [{ name: "value", lineNumber: 1, columnNumber: 14, parameterTypes: [] }],
     };
 
     cache.set(sourceFilePath, analysis);
@@ -85,7 +85,9 @@ describe("createAnalysisCache", () => {
     const workspaceRoot = createTempWorkspace();
     const sourceFilePath = createSourceFile(workspaceRoot);
     const analysis: SourceFileAnalysis = {
-      functions: [{ name: "value", parameterTypes: ["number"] }],
+      functions: [
+        { name: "value", lineNumber: 1, columnNumber: 14, parameterTypes: ["number"] },
+      ],
     };
 
     const firstCache = createAnalysisCache({

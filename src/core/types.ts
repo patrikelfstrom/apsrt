@@ -1,5 +1,7 @@
 export interface ExportedFunctionAnalysis {
   name: string;
+  lineNumber: number;
+  columnNumber: number;
   parameterTypes: string[];
 }
 

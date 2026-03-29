@@ -74,6 +74,8 @@ npx apsrt --watch
 
 Snapshots are stored in `.apsrt/__snapshots__/runtime.test.js.snap` inside the project you run APSRT from.
 
+If APSRT detects a likely nondeterministic function such as one using `Math.random()`, it will stop and ask you to add an `@apsrt-ignore` annotation to that export.
+
 ## Tech Stack
 
 - [TypeScript](https://www.typescriptlang.org/)

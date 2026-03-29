@@ -1,4 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["test/fixtures/**/*.ts"]
+  "include": ["test/fixtures/**/*.ts"],
+  "exclude": [
+    "test/fixtures/nondeterministicFixture.ts",
+    "test/fixtures/multipleNondeterministicFixture.ts",
+    "test/fixtures/moduleLoading/**/*.ts"
+  ]
 }

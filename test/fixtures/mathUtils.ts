@@ -9,3 +9,10 @@ export function greet(name: string): string {
 export function negate(value: boolean): boolean {
   return !value;
 }
+
+/**
+ * @apsrt-ignore
+ */
+export function randomNumber(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}

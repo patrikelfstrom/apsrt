@@ -5,6 +5,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { startVitest } from "vitest/node";
 import { defineConfig } from "vitest/config";
+import { ApsrtReporter } from "./core/apsrtReporter";
+import { collectRuntimeSnapshotResults } from "./core/collectRuntimeSnapshotResults";
+import { formatApsrtUserError, isApsrtUserError } from "./core/errors";
 import { parseCliArgs } from "./core/parseCliArgs";
 
 const currentFilePath = fileURLToPath(import.meta.url);
@@ -30,6 +33,22 @@ if (tsConfigFilePath) {
   process.env.APSRT_TSCONFIG_PATH = tsConfigFilePath;
 }
 
+try {
+  await collectRuntimeSnapshotResults({
+    cwd,
+    tsConfigFilePath,
+  });
+} catch (error) {
+  if (isApsrtUserError(error)) {
+    process.stderr.write(
+      `${formatApsrtUserError(error, Boolean(process.stderr.isTTY))}\n`
+    );
+    process.exit(1);
+  }
+
+  throw error;
+}
+
 const vitestConfig = defineConfig({
   test: {
     include: [absoluteRuntimeTestPath],
@@ -37,8 +56,8 @@ const vitestConfig = defineConfig({
     root: cwd,
     environment: "node",
     server: { deps: { inline: ["apsrt"] } },
-    reporters: ["verbose"],
-    silent: false,
+    reporters: [new ApsrtReporter()],
+    silent: true,
     resolveSnapshotPath: () =>
       path.join(snapshotDirectory, "runtime.test.js.snap"),
   },

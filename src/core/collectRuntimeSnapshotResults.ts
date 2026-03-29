@@ -47,7 +47,8 @@ export async function collectRuntimeSnapshotResults(
 
   const results = await Promise.all(
     analyzedSources.flatMap(({ sourceFilePath, analysis, moduleExports }) =>
-      analysis.functions.map(async ({ name, parameterTypes }) => {
+      analysis.functions.map(
+        async ({ name, lineNumber, columnNumber, parameterTypes }) => {
         const callable = moduleExports[name];
         if (typeof callable !== "function") {
           throw new TypeError(
@@ -56,7 +57,7 @@ export async function collectRuntimeSnapshotResults(
         }
 
         const relativeSourcePath = relative(displayRoot, sourceFilePath);
-        const title = `${relativeSourcePath}\t${name}()`;
+        const title = `${relativeSourcePath}\t${lineNumber}\t${columnNumber}\t${name}()`;
         const argumentArbitraries = parameterTypes.map(createArbitraryForType);
         const sampledArguments = argumentArbitraries.length
           ? fc.sample(fc.tuple(...argumentArbitraries), {
@@ -89,7 +90,8 @@ export async function collectRuntimeSnapshotResults(
           title,
           assertions,
         };
-      })
+        }
+      )
     )
   );
 
