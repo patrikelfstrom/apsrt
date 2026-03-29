@@ -6,3 +6,5 @@ node_modules/
 script/__snapshots__/
 
 .DS_Store
+
+*.code-workspace

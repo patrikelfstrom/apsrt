@@ -1,18 +1,14 @@
 import { describe, it, expect } from "vitest";
 import fc from "fast-check";
 import * as path from "path";
-import { getTsMorphInfo } from "./tsmorphCache";
-import { packageDirectory } from "pkg-dir";
+import { analyzeSourceFiles } from "./analyzeSourceFiles";
 import { arbForType } from "./arbForType";
 import { globbySync } from "globby";
 
 const RANDOM_SEED = 12345;
 const SAMPLES_PER_FUNCTION = 10;
 
-// Find project root and source directory
-const PROJECT_ROOT_DIR = await packageDirectory();
-if (!PROJECT_ROOT_DIR) throw new Error("Project root not found");
-const SOURCE_DIR = path.join(PROJECT_ROOT_DIR, "src");
+const tsConfig = getTsConfig();
 
 // Gather all .ts files (excluding test files)
 const sourceFiles = globbySync(["**/*.ts", "!**/*.test.ts"], {
@@ -20,24 +16,9 @@ const sourceFiles = globbySync(["**/*.ts", "!**/*.test.ts"], {
   absolute: true,
 });
 
-// Preload ts-morph info and modules for all files in parallel
-// https://ts-morph.com - TypeScript AST (Abstract Syntax Tree)
-const fileAnalysisAndModules = await Promise.all(
-  sourceFiles.map(async (sourceFilePath) => {
-    const [analysis, moduleExports] = await Promise.all([
-      getTsMorphInfo(sourceFilePath),
-      import(sourceFilePath),
-    ]);
-    return { sourceFilePath, analysis, moduleExports };
-  })
-);
+const analyzedSourceFiles = await analyzeSourceFiles(sourceFiles);
 
-// Generate property-based snapshot tests for each exported function
-for (const {
-  sourceFilePath,
-  analysis,
-  moduleExports,
-} of fileAnalysisAndModules) {
+for (const { sourceFilePath, analysis, moduleExports } of analyzedSourceFiles) {
   for (const exportedFn of analysis.functions) {
     const exportedFnName = exportedFn.name as keyof typeof moduleExports;
     const exportedParamTypes = exportedFn.paramTypes;
