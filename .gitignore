@@ -8,3 +8,5 @@ script/__snapshots__/
 .DS_Store
 
 *.code-workspace
+
+src/__snapshots__/

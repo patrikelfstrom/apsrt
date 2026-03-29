@@ -3,18 +3,19 @@ import fc from "fast-check";
 import * as path from "path";
 import { analyzeSourceFiles } from "./analyzeSourceFiles";
 import { arbForType } from "./arbForType";
-import { globbySync } from "globby";
+import { getTsConfig } from "./getTsConfig";
 
 const RANDOM_SEED = 12345;
 const SAMPLES_PER_FUNCTION = 10;
 
 const tsConfig = getTsConfig();
 
-// Gather all .ts files (excluding test files)
-const sourceFiles = globbySync(["**/*.ts", "!**/*.test.ts"], {
-  cwd: SOURCE_DIR,
-  absolute: true,
-});
+const sourceFiles = tsConfig.fileNames.filter(
+  (fileName) =>
+    fileName.endsWith(".ts") &&
+    !fileName.endsWith(".test.ts") &&
+    !fileName.endsWith("cli.ts")
+);
 
 const analyzedSourceFiles = await analyzeSourceFiles(sourceFiles);
 
@@ -28,7 +29,7 @@ for (const { sourceFilePath, analysis, moduleExports } of analyzedSourceFiles) {
     )}()`;
 
     describe(testCaseTitle, () => {
-      it("matches snapshot", () => {
+      it("matches snapshot", async () => {
         const inputSamples = arbitrariesForParams.length
           ? fc.sample(fc.tuple(...arbitrariesForParams), {
               numRuns: SAMPLES_PER_FUNCTION,
@@ -39,14 +40,16 @@ for (const { sourceFilePath, analysis, moduleExports } of analyzedSourceFiles) {
               seed: RANDOM_SEED,
             });
 
-        const testResults = inputSamples.map((inputArgs) => {
-          try {
-            const output = moduleExports[exportedFnName](...inputArgs);
-            return { input: inputArgs, output };
-          } catch (e: any) {
-            return { input: inputArgs, error: e?.message ?? String(e) };
-          }
-        });
+        const testResults = await Promise.all(
+          inputSamples.map(async (inputArgs) => {
+            try {
+              const output = await moduleExports[exportedFnName](...inputArgs);
+              return { input: inputArgs, output };
+            } catch (e: any) {
+              return { input: inputArgs, error: e?.message ?? String(e) };
+            }
+          })
+        );
 
         expect(testResults).toMatchSnapshot();
       });
