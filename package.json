@@ -10,7 +10,6 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "clean": "rm -rf .apsrt dist blablabla script src/__snapshots__",
     "prepack": "npm run build",
     "test": "vitest run",
     "test:update": "vitest run --update",
@@ -18,21 +17,21 @@
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json && tsc --noEmit -p tsconfig.fixtures.json && tsc --noEmit -p tsconfig.nondeterministic-fixtures.json && tsc --noEmit -p tsconfig.multiple-nondeterministic-fixtures.json && tsc --noEmit -p tsconfig.module-loading-fixtures.json"
   },
   "devDependencies": {
-    "@types/node": "^22.15.19",
-    "tsdown": "^0.12.9",
-    "vitest": "^3.2.4"
+    "@types/node": "^24.12.0",
+    "tsdown": "^0.21.7",
+    "vitest": "^4.1.2"
   },
   "dependencies": {
-    "fast-check": "^4.1.1",
-    "ts-morph": "^25.0.1",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.5",
-    "vite-node": "^3.2.4",
-    "vitest": "^3.2.4"
+    "fast-check": "^4.6.0",
+    "ts-morph": "^27.0.2",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3",
+    "vite-node": "^6.0.0",
+    "vitest": "^4.1.2"
   },
   "exports": {
-    "./cli": "./dist/cli.js",
-    "./runtime.test": "./dist/runtime.test.js",
+    "./cli": "./dist/cli.mjs",
+    "./runtime.test": "./dist/runtime.test.mjs",
     "./package.json": "./package.json"
   },
   "bin": {
@@ -40,5 +39,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "volta": {
+    "node": "24.14.1"
   }
 }
